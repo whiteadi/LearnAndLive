@@ -75,3 +75,4 @@ function getScores() {
     document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
   }
 }
+

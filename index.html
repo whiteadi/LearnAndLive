@@ -7,8 +7,8 @@
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans:700' rel='stylesheet' type='text/css'>
 	<link href='css/button-styles.css' rel='stylesheet' type='text/css'>
 
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script>
         var currentExercise;
 
@@ -98,27 +98,47 @@
 
 <div id="exercise" class="container">
 
-    <h3 id="exerciseTitle"></h3>
-    <div class="col three">
-        <a href="#" id="startExercise" class="btn btn-rouge">START!</a>
-    </div>
-
-    <div>Time: <span id="time"></span></div>
-
-    <input id="score" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
-
-    <div class="col three">
-        <a href="#" id="savesScore" class="btn btn-sea">Save score</a>
-    </div>
-
-    <div class="col three">
-        <a href="#" id="stopExercise" class="btn btn-dark">STOP</a>
-    </div>
-
-    <div class="col three">
-        <a href="#" id="return" class="btn btn-concrete">Home</a>
-    </div>
-
+    <table class="table">
+        <thead>
+        <tr>
+            <th id="exerciseTitle">#</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <div class="col three">
+                    <a href="#" id="startExercise" class="btn btn-rouge">START!</a>
+                </div>
+            </td>
+            <td>
+                <div>Time: <span id="time"></span></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input id="score" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+            </td>
+            <td>
+                <div class="col three">
+                    <a href="#" id="savesScore" class="btn btn-sea">Save score</a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="col three">
+                    <a href="#" id="stopExercise" class="btn btn-dark">STOP</a>
+                </div>
+            </td>
+            <td>
+                <div class="col three">
+                    <a href="#" id="return" class="btn btn-concrete">Home</a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 	
 </body>
