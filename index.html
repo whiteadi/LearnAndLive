@@ -6,12 +6,65 @@
 	<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans:700' rel='stylesheet' type='text/css'>
 	<link href='css/button-styles.css' rel='stylesheet' type='text/css'>
-	<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-	<script src="js/main.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script>
+        var currentExercise;
+
+        $(document).ready(function(){
+
+            $("#exercise").hide();
+            $('#pushbutton').click(function (e) {
+                e.preventDefault();
+                showExercise('push');
+                return false;
+            });
+
+            $('#sitbutton').click(function (e) {
+                e.preventDefault();
+                showExercise('sit');
+                return false;
+            });this.currentExercise
+
+            $('#squatsbutton').click(function (e) {
+                e.preventDefault();
+                showExercise('squats');
+                return false;
+            });
+
+            $('#startExercise').click(function (e) {
+                e.preventDefault();
+                startExercise();
+                return false;
+            });
+
+            $('#stopExercise').click(function (e) {
+                e.preventDefault();
+                stopExercise();
+                return false;
+            });
+
+            $('#savesScore').click(function (e) {
+                e.preventDefault();
+                saveScore($('#score').val(), currentExercise);
+                return false;
+            });
+
+            $('#return').click(function (e) {
+                e.preventDefault();
+                goHome();
+                return false;
+            });
+        });
+
+    </script>
+    <script src="js/stopwatch.js"></script>
+    <script src="js/main.js"></script>
 </head>
 <body>
 
-<div class="container">
+<div id="home" class="container">
 	<div class="row">
 		<div class="col twelve">			
 			<h1>Choose an exercise</h1>
@@ -20,23 +73,53 @@
 
 	<div class="row">
 		<div class="col three">				
-			<a href="#" class="btn btn-sunflower">Push ups</a>			
+			<a id="pushbutton" href="#" class="btn btn-sunflower">Push ups</a>
 			Score: <span id="push"></span>
 		</div>
 		
 		<div class="col three">
-			<a href="#" class="btn btn-dark-blue">Sit ups</a>		
+			<a href="#" id="sitbutton" class="btn btn-dark-blue">Sit ups</a>
 			Score: <span id="sit"></span>
 		</div>
 		
 		<div class="col three">
-			<a href="#" class="btn btn-rouge">Squats</a>			
+			<a href="#" id="squatsbutton" class="btn btn-rouge">Squats</a>
 			Score: <span id="squats"></span>
 		</div>
 	</div>
 
+	<div id="result"></div>
+
+	<script>
+		getScores();
+	</script>
+
 </div>
 
+<div id="exercise" class="container">
+
+    <h3 id="exerciseTitle"></h3>
+    <div class="col three">
+        <a href="#" id="startExercise" class="btn btn-rouge">START!</a>
+    </div>
+
+    <div>Time: <span id="time"></span></div>
+
+    <input id="score" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+
+    <div class="col three">
+        <a href="#" id="savesScore" class="btn btn-sea">Save score</a>
+    </div>
+
+    <div class="col three">
+        <a href="#" id="stopExercise" class="btn btn-dark">STOP</a>
+    </div>
+
+    <div class="col three">
+        <a href="#" id="return" class="btn btn-concrete">Home</a>
+    </div>
+
+</div>
 	
 </body>
 </html>
