@@ -51,7 +51,9 @@ function saveScore(newScore, exerciseType){
   var oldScore = parseInt(localStorage.getItem(exerciseType));
 
   if(isNaN(oldScore) || (parseInt(newScore) > oldScore)){
-    localStorage.setItem(exerciseType, newScore);    
+    localStorage.setItem(exerciseType, newScore);
+    // alert dialog
+    alertify.alert("New record!");
   }
 }
 function goHome(){
