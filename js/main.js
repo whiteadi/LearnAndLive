@@ -50,7 +50,7 @@ function saveScore(newScore, exerciseType){
 
   var oldScore = parseInt(localStorage.getItem(exerciseType));
 
-  if(parseInt(newScore) > oldScore){
+  if(isNaN(oldScore) || (parseInt(newScore) > oldScore)){
     localStorage.setItem(exerciseType, newScore);    
   }
 }
